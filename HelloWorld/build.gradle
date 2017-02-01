@@ -1,1 +1,40 @@
 apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'hello.HelloWorld'
+
+//set JDK to version 1.8; default is 1.7
+//compileJava {
+//    compileJava.options.fork = true
+//    compileJava.options.forkOptions.executable =
+//            "C:/Program Files/Java/for-Intellij/jdk8/bin/javac.exe"
+//}
+
+// tag::repositories[]
+repositories {
+    mavenCentral()
+}
+// end::repositories[]
+
+// tag::jar[]
+jar {
+    baseName = 'gs-gradle'
+    version = '0.1.0'
+}
+// end::jar[]
+
+// tag::dependencies[]
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile "joda-time:joda-time:2.2"
+    testCompile "junit:junit:4.12"
+}
+// end::dependencies[]
+
+// tag::wrapper[]
+// end::wrapper[]
+
+
+
